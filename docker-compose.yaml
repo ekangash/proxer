@@ -20,7 +20,8 @@ services:
     container_name: certbot
     image: certbot/certbot
     volumes:
-      - ./data/certbot/conf:/etc/letsencrypt
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
     networks:
       - net
     # Перезапустит контейнер в непредвиденных ситуациях
