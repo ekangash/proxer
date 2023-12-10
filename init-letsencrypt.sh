@@ -96,5 +96,3 @@ for domain in ${!domains[*]}; do
     $staging_arg $email_arg --rsa-key-size $rsa_key_size --agree-tos --force-renewal --non-interactive" certbot
   fi
 done
-
-docker-compose down certbot-nginx
