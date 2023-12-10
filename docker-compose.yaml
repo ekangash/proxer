@@ -1,8 +1,8 @@
 version: '3.5'
 services:
-  router:
+  router-nginx:
     image: nginx:latest
-    container_name: proxer-nginx
+    container_name: proxer-router-nginx
     ports:
       - "${HTTP_PORT}:80"
       - "${HTTPS_PORT}:443"
@@ -24,9 +24,25 @@ services:
       - ./data/certbot/www:/var/www/certbot
     networks:
       - net
+    profiles:
+      - donotstart
     # Перезапустит контейнер в непредвиденных ситуациях
     restart: unless-stopped
     # Проверяет каждые 12 часов, нужны ли новые сертификаты
     entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+  certbot-nginx:
+    image: nginx:latest
+    container_name: proxer-certbot-nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/certbot-default.conf:/etc/nginx/conf.d/default.conf
+      - ./data/certbot/conf:/etc/letsencrypt
+      - ./data/certbot/www:/var/www/certbot
+    networks:
+      - net
+    profiles:
+      - donotstart
+    restart: always
 networks:
   net:

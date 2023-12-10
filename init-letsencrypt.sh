@@ -59,9 +59,9 @@ for domain in ${!domains[*]}; do
 
 done
 
-echo "### Starting nginx container ..."
-# Restarting for case if nginx container is already started
-docker-compose up -d router && docker-compose restart router
+echo "### Starting certbot-nginx container ..."
+# Restarting for case if certbot-nginx container is already started
+docker-compose up -d certbot-nginx && docker-compose restart certbot-nginx
 
 # Select appropriate email arg
 case "$email" in
