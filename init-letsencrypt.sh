@@ -4,7 +4,7 @@ domains=("notionance.ru www.notionance.ru" "api.notionance.ru www.api.notionance
 email="kangash1996@gmail.com" # Adding a valid address is strongly recommended
 staging=1 # Set to 1 if you're testing your setup to avoid hitting request limits
 
-data_path="./certbot"
+data_path="./data/certbot"
 rsa_key_size=4096
 regex="([^www.].+)"
 
