@@ -23,8 +23,6 @@ services:
       - ./data/certbot/conf:/etc/letsencrypt
     networks:
       - net
-    profiles:
-      - donotstart
     # Перезапустит контейнер в непредвиденных ситуациях
     restart: unless-stopped
     # Проверяет каждые 12 часов, нужны ли новые сертификаты
