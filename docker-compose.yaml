@@ -28,9 +28,9 @@ services:
     restart: unless-stopped
     # Проверяет каждые 12 часов, нужны ли новые сертификаты
     entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
-  certbot-nginx:
+  certbot-for-nginx:
     image: nginx:latest
-    container_name: proxer-certbot-nginx
+    container_name: proxer-certbot-for-nginx
     ports:
       - "80:80"
     volumes:

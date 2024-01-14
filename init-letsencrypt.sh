@@ -1,6 +1,6 @@
 #!/bin/bash
 
-domains=("nowsense.net www.nowsense.net" "api.nowsense.net www.api.nowsense.net")
+domains=("nocen.net www.nocen.net" "api.nocen.net www.api.nocen.net")
 email="kangash1996@gmail.com" # Adding a valid address is strongly recommended
 staging=1 # Set to 1 if you're testing your setup to avoid hitting request limits
 
@@ -59,9 +59,9 @@ for domain in ${!domains[*]}; do
 
 done
 
-echo "### Starting certbot-nginx container ..."
-# Restarting for case if certbot-nginx container is already started
-docker-compose up -d certbot-nginx && docker-compose restart certbot-nginx
+echo "### Starting certbot-for-nginx container ..."
+# Restarting for case if certbot-for-nginx container is already started
+docker-compose up -d certbot-for-nginx && docker-compose restart certbot-for-nginx
 
 # Select appropriate email arg
 case "$email" in
