@@ -1,6 +1,6 @@
 #!/bin/bash
 
-domains=("nocen.ru www.nocen.ru" "api.nocen.ru www.api.nocen.ru")
+domains=("unstock.ru www.unstock.ru" "api.unstock.ru www.api.unstock.ru")
 email="kangash1996@gmail.com" # Adding a valid address is strongly recommended
 staging=1 # Set to 1 if you're testing your setup to avoid hitting request limits
 
